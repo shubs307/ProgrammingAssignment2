@@ -5,7 +5,7 @@
 ## Following functions can be used to create a special matrix object and cache its inverse
 
 
-## function makeCacheMatrix creates a special "matrix" object, which is really a list containing a function to set/get the matrix and its inverse
+## function makeCacheMatrix creates a special "matrix" object, which is actually a list containing functions to set/get the matrix and its inverse
 makeCacheMatrix <- function(x = matrix()) {
     # assigns x_inv to NULL for each creation of special matrix object
     x_inv <- NULL
@@ -27,7 +27,6 @@ makeCacheMatrix <- function(x = matrix()) {
 ## function cacheSolve takes special matrix as input, caches(if not already) and returns its inverse(assuming matrix is always invertible)
 cacheSolve <- function(x, ...) {
     # check and return the inverse if it was already computed and stored for x
-  
     inv <- x$getinv()
     if(!is.null(inv)) {
         message("getting inverse")
